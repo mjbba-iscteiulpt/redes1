@@ -1,0 +1,15 @@
+set title "Probabilidade de transmissão sem erros. (Hamming)"
+
+n = 7
+
+set logscale x
+
+set grid
+
+Pse(x)=(1-x)**n
+
+
+
+
+
+plot [1e-6:0.5] [0:1] Pse(x) t "Pse"

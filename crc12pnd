@@ -1,0 +1,19 @@
+set title "Probabilidade de não serem detectados erros na trama dado que a trama sofreu erros. (CRC 12 bits)"
+
+set logscale x
+
+set grid
+
+
+n = 12
+m = 3
+
+
+
+
+PndA(x)=(1 - (((1 - x)**n) + (n * (1 - x)**(n - 1) * x) + (((n * (n - 1)) / 2) * (1 - x)**(n - 2) * x**2) + (220 * (1 - x)**(n - 3) * x**3))) / (1 - (1 - x)**n)
+
+PndE(x) = (7*x**4*(1-x)**8 + 6*x**6*(1-x)**6 + 2*x**8*(1-x)**4)/(1-(1-x)**12)
+
+
+plot [1e-6:1] [0:1] PndA(x), PndE(x)

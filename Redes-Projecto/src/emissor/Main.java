@@ -3,8 +3,14 @@ package emissor;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		System.out.println("Escolha o método.");
+		System.out.println("Manual ou Simulação (m/s)");
+		
+		//Implentar simulacao depois. Para facilitar testes fazemos só manual
+		
+		Manual.getInstance().init();
+		
+		
 	}
 
 }

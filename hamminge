@@ -1,0 +1,15 @@
+set title "Valor esperado do número de bits errados na trama. (Hamming)"
+
+n = 7
+
+set logscale x
+
+set grid
+
+E(x)=x*n
+
+
+
+
+
+plot [1e-6:0.5] [0:1] E(x) t "E[#erros]"
