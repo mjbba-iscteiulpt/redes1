@@ -35,4 +35,13 @@ public class BitParidade {
 
 		return finalTrama;
 	}
+	
+	public void detectErrors(int onesTrama, int[] trama) {
+		if (onesTrama%2 == 0 && trama[trama.length-1] == 0)
+			System.out.println("Trama sem erro(s) detectados.");
+		else if (onesTrama%2 !=0 && trama[trama.length-1] == 1)
+			System.out.println("Trama sem erro(s) detectados.");
+		else
+			System.out.println("Trama com erro(s) detectados.");
+	}
 }

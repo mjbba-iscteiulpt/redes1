@@ -1,6 +1,7 @@
 package receptor;
 
 import codes.BitParidade;
+import codes.Hamming;
 
 public class Receptor {
 
@@ -18,21 +19,30 @@ public class Receptor {
 	}
 	
 	//teste
-	public void tramaRecebida(int[] trama) {
+	public void tramaRecebida(int[] trama, int metodoEscolhido) {
 		int[] tramaAContar = new int[5];
 		
 		for (int i=0; i<tramaAContar.length-1; i++){
 			tramaAContar[i] = trama[i];
 		}
 		
-		int onesTrama = BitParidade.getInstance().countOnes(tramaAContar);
-		System.out.println("AQUI"+onesTrama);
-		if (onesTrama%2 == 0 && trama[trama.length-1] == 0)
-			System.out.println("Trama sem erro(s) detectados.");
-		else if (onesTrama%2 !=0 && trama[trama.length-1] == 1)
-			System.out.println("Trama sem erro(s) detectados.");
-		else
-			System.out.println("Trama com erro(s) detectados.");
+		
+		switch (metodoEscolhido){
+		case 1:
+			BitParidade.getInstance().detectErrors(BitParidade.getInstance().countOnes(tramaAContar), trama);
+			break;
+		case 2:
+			System.out.println(Hamming.getInstance().calcC(trama));
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		}
+		
+		
+		
+		
 	}
 
 }
