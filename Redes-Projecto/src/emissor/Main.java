@@ -8,7 +8,8 @@ public class Main {
 		
 		//Implentar simulacao depois. Para facilitar testes fazemos só manual
 		
-		Manual.getInstance().init();
+		Manual manual = new Manual();
+		manual.init();
 		
 		
 	}

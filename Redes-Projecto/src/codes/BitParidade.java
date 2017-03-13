@@ -2,8 +2,17 @@ package codes;
 
 public class BitParidade {
 
-	public BitParidade() {
+	private static BitParidade instance = null;
 
+	protected BitParidade() {
+		// Exists only to defeat instantiation.
+	}
+
+	public static BitParidade getInstance() {
+		if (instance == null) {
+			instance = new BitParidade();
+		}
+		return instance;
 	}
 
 	public int countOnes(int[] trama) {

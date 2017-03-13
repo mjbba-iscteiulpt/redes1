@@ -3,21 +3,15 @@ package emissor;
 import java.util.Scanner;
 
 import codes.BitParidade;
+import receptor.Receptor;
 
 public class Manual {
 
-	private static Manual instance = null;
 
-	protected Manual() {
+	public Manual() {
 		// Exists only to defeat instantiation.
 	}
 
-	public static Manual getInstance() {
-		if (instance == null) {
-			instance = new Manual();
-		}
-		return instance;
-	}
 
 	public void init() {
 		askQuestions();
@@ -37,16 +31,17 @@ public class Manual {
 		for (int i =0; i< stringTrama.length(); i++) {
 			trama[i] = Integer.parseInt(String.valueOf(stringTrama.charAt(i)));
 		}
-		BitParidade bitParidade = new BitParidade();
+		
 		switch(anwser) {
 		   case 1:
 			   //teste
-			   int[] tramaFinal = bitParidade.calcularParidade(trama);
+			   int[] tramaFinal = BitParidade.getInstance().calcularParidade(trama);
 			   String teste = "";
 			   for (int i = 0; i< tramaFinal.length; i++)
 				   teste += tramaFinal[i];
-			   System.out.println(teste);
-		      break; 
+			   System.out.println(">> Trama enviada. "+teste);
+			   Receptor.getInstance().tramaRecebida(tramaFinal);
+			   break; 
 		   
 		   case 2:
 		      // Statements
