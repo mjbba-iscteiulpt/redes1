@@ -1,19 +1,13 @@
 package codes;
 
+import singleton.SuperSingleton;
+
 public class BitParidade {
 
-	private static BitParidade instance = null;
-
-	protected BitParidade() {
+	public BitParidade() {
 		// Exists only to defeat instantiation.
 	}
 
-	public static BitParidade getInstance() {
-		if (instance == null) {
-			instance = new BitParidade();
-		}
-		return instance;
-	}
 
 	public int countOnes(int[] trama) {
 		int numberOfOnes = 0;
@@ -37,11 +31,24 @@ public class BitParidade {
 	}
 	
 	public void detectErrors(int onesTrama, int[] trama) {
-		if (onesTrama%2 == 0 && trama[trama.length-1] == 0)
+		if (onesTrama%2 == 0 && trama[trama.length-1] == 0) {
 			System.out.println("Trama sem erro(s) detectados.");
-		else if (onesTrama%2 !=0 && trama[trama.length-1] == 1)
+			if (SuperSingleton.getInstance().getAuxCalc().checkTramas(trama)) {
+				System.out.println("-- Erros detectados correctamente --");
+			} else
+				System.out.println("-- Trama com erro(s) não detectados. --");
+		} else if (onesTrama%2 !=0 && trama[trama.length-1] == 1) {
 			System.out.println("Trama sem erro(s) detectados.");
-		else
+			if (SuperSingleton.getInstance().getAuxCalc().checkTramas(trama)) {
+				System.out.println("-- Erros detectados correctamente --");
+			} else
+				System.out.println("-- Trama com erro(s) não detectados. --");
+		} else {
 			System.out.println("Trama com erro(s) detectados.");
+			if (SuperSingleton.getInstance().getAuxCalc().checkTramas(trama)) {
+				System.out.println("-- Erros detectados correctamente --");
+			} else
+				System.out.println("-- Trama com erro(s) não detectados. --");
+		}
 	}
 }
