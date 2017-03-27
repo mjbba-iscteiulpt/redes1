@@ -2,12 +2,6 @@ package emissor;
 
 import java.util.Arrays;
 import java.util.Scanner;
-
-import codes.BitParidade;
-import codes.Crc11;
-import codes.Crc263;
-import codes.Hamming;
-import receptor.Receptor;
 import singleton.SuperSingleton;
 
 public class Manual {
@@ -23,13 +17,14 @@ public class Manual {
 	}
 
 	public void askQuestions() {
+		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
 		System.out.println(" ");
 		System.out.println(" ");
 		System.out.println("Escolha o código que quer usar.");
 		System.out.println("1:Bit paridade | 2:Hamming | 3:CRC11 | 4: CRC263:");
 		int anwser = reader.nextInt();
-
+		SuperSingleton.getInstance().getEstatisticas().setMetodoEscolhido(anwser);
 		System.out.println("Insira a trama:");
 		String stringTrama = reader.next();
 		int[] trama = new int[5];
@@ -49,6 +44,8 @@ public class Manual {
 			for (int i = 0; i < stringPadrao.length(); i++) {
 				padraoErros[i] = Integer.parseInt(String.valueOf(stringPadrao.charAt(i)));
 			}
+			System.out.println("");
+			System.out.println("");
 			SuperSingleton.getInstance().initBit();
 			tramaFinal = SuperSingleton.getInstance().getBitParidade().calcularParidade(trama);
 			SuperSingleton.getInstance().getAuxCalc().setTramaEnviada(tramaFinal);
@@ -126,7 +123,7 @@ public class Manual {
 			}
 			tramaAuxCRC = SuperSingleton.getInstance().getCrc263().calcFCS(tramaAuxCRC);
 			SuperSingleton.getInstance().getAuxCalc().setTramaEnviada(tramaAuxCRC);
-			System.out.println(">> Trama enviada. " + Arrays.toString(tramaAuxCRC));
+			System.out.println(">> Trama enviada:  " + Arrays.toString(tramaAuxCRC));
 			tramaAuxCRC = SuperSingleton.getInstance().getCanalRuido().addErrosTrama(padraoErros, tramaAuxCRC);
 			SuperSingleton.getInstance().getReceptor().tramaRecebida(tramaAuxCRC, 4);
 			break;

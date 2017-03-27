@@ -20,13 +20,12 @@ public class BitParidade {
 	
 	
 	public int[] calcularParidade(int[] trama) {
-		int[] finalTrama = new int[6];
-		finalTrama = trama;
+		int[] finalTrama = new int[trama.length+1];
+		System.arraycopy(trama, 0, finalTrama, 0, trama.length);
 		if (countOnes(trama) % 2 == 0)
 			finalTrama[finalTrama.length-1] = 0;
 		else
 			finalTrama[finalTrama.length-1] = 1;
-
 		return finalTrama;
 	}
 	
@@ -35,20 +34,29 @@ public class BitParidade {
 			System.out.println("Trama sem erro(s) detectados.");
 			if (SuperSingleton.getInstance().getAuxCalc().checkTramas(trama)) {
 				System.out.println("-- Erros detectados correctamente --");
-			} else
+				SuperSingleton.getInstance().getEstatisticas().errosDetectatos();
+			} else {
 				System.out.println("-- Trama com erro(s) não detectados. --");
+				SuperSingleton.getInstance().getEstatisticas().errosNaoDetectados();
+			}
 		} else if (onesTrama%2 !=0 && trama[trama.length-1] == 1) {
 			System.out.println("Trama sem erro(s) detectados.");
 			if (SuperSingleton.getInstance().getAuxCalc().checkTramas(trama)) {
 				System.out.println("-- Erros detectados correctamente --");
-			} else
+				SuperSingleton.getInstance().getEstatisticas().errosDetectatos();
+			} else {
 				System.out.println("-- Trama com erro(s) não detectados. --");
+				SuperSingleton.getInstance().getEstatisticas().errosNaoDetectados();
+			}
 		} else {
 			System.out.println("Trama com erro(s) detectados.");
 			if (SuperSingleton.getInstance().getAuxCalc().checkTramas(trama)) {
 				System.out.println("-- Erros detectados correctamente --");
-			} else
+				SuperSingleton.getInstance().getEstatisticas().errosDetectatos();
+			} else {
 				System.out.println("-- Trama com erro(s) não detectados. --");
+				SuperSingleton.getInstance().getEstatisticas().errosNaoDetectados();
+			}
 		}
 	}
 }

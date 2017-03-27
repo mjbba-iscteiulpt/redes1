@@ -33,6 +33,7 @@ public class CanalRuidoso {
 		for (int i = 0; i<trama.length; i++) {
 			trama[i] = SuperSingleton.getInstance().getAuxCalc().calcXor(trama[i], padraoErros[i]);
 		}
+		System.out.println("Trama após canal ruidoso: "+Arrays.toString(trama) );
 		return trama;
 	}
 

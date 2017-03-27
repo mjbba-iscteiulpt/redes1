@@ -1,6 +1,7 @@
 package singleton;
 
 import calcs.AuxCalc;
+import calcs.Estatisticas;
 import canalruidoso.CanalRuidoso;
 import codes.BitParidade;
 import codes.Crc11;
@@ -22,7 +23,12 @@ public class SuperSingleton {
 	private Receptor receptor;
 	private AuxCalc auxCalc;
 	private CanalRuidoso canalRuido;
+	private Estatisticas estatisticas;
 	
+
+	public Estatisticas getEstatisticas() {
+		return estatisticas;
+	}
 
 	protected SuperSingleton() {
 		// Exists only to defeat instantiation.
@@ -44,6 +50,7 @@ public class SuperSingleton {
 		receptor = new Receptor();
 		auxCalc = new AuxCalc();
 		canalRuido = new CanalRuidoso();
+		estatisticas = new Estatisticas();
 	}
 	
 	public void initBit() {
@@ -97,6 +104,8 @@ public class SuperSingleton {
 	public Simulation getSimulacao() {
 		return simulacao;
 	}
+
+	
 	
 	
 	

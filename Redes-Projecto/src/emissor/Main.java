@@ -22,6 +22,7 @@ public class Main {
 			SuperSingleton.getInstance().initClasses(2);
 			SuperSingleton.getInstance().getSimulacao().run();
 		}
+		
 
 	}
 
