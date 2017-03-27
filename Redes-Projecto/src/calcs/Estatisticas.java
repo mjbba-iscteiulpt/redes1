@@ -79,7 +79,7 @@ public class Estatisticas {
 	}
 
 	public void criarFicheiro() {
-		File file = new File("C:\\Users\\Mario\\Documents\\repositorio-redes_"+getMetodoEscolhido()+".txt");
+		File file = new File("C:\\Users\\Mario\\Documents\\repositorio-redes\\Resultado_"+getMetodoEscolhido()+".txt");
 		try {
 			writer = new PrintWriter(file);
 		} catch (FileNotFoundException e) {

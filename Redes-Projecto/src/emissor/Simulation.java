@@ -45,8 +45,7 @@ public class Simulation {
 					SuperSingleton.getInstance().getReceptor().tramaRecebida(tramaFinal, 1);
 					break;
 
-				case 2:
-					
+				case 2:					
 					SuperSingleton.getInstance().initHamming();
 					tramaFinal = new int[7];
 					int[] vectorOfP = SuperSingleton.getInstance().getHamming().calcP(trama);

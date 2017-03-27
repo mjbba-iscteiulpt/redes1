@@ -50,12 +50,9 @@ public class BitParidade {
 			}
 		} else {
 			System.out.println("Trama com erro(s) detectados.");
-			if (SuperSingleton.getInstance().getAuxCalc().checkTramas(trama)) {
+			if (!SuperSingleton.getInstance().getAuxCalc().checkTramas(trama)) {
 				System.out.println("-- Erros detectados correctamente --");
 				SuperSingleton.getInstance().getEstatisticas().errosDetectatos();
-			} else {
-				System.out.println("-- Trama com erro(s) não detectados. --");
-				SuperSingleton.getInstance().getEstatisticas().errosNaoDetectados();
 			}
 		}
 	}

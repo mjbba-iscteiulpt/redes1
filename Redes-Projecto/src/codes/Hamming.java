@@ -12,19 +12,10 @@ public class Hamming {
 		int[] vectorOfP = new int[3];
 		vectorOfP[0] = SuperSingleton.getInstance().getAuxCalc()
 				.calcXor(SuperSingleton.getInstance().getAuxCalc().calcXor(trama[0], trama[1]), trama[3]);
-		// vectorOfP[0] =
-		// AuxCalc.getInstance().calcXor(AuxCalc.getInstance().calcXor(trama[0],
-		// trama[1]), trama[3]);
 		vectorOfP[1] = SuperSingleton.getInstance().getAuxCalc()
 				.calcXor(SuperSingleton.getInstance().getAuxCalc().calcXor(trama[0], trama[2]), trama[3]);
-		// vectorOfP[1] =
-		// AuxCalc.getInstance().calcXor(AuxCalc.getInstance().calcXor(trama[0],
-		// trama[2]), trama[3]);
 		vectorOfP[2] = SuperSingleton.getInstance().getAuxCalc()
 				.calcXor(SuperSingleton.getInstance().getAuxCalc().calcXor(trama[1], trama[2]), trama[3]);
-		// vectorOfP[2] =
-		// AuxCalc.getInstance().calcXor(AuxCalc.getInstance().calcXor(trama[1],
-		// trama[2]), trama[3]);
 		return vectorOfP;
 	}
 

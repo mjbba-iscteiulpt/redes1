@@ -39,7 +39,7 @@ public class Receptor {
 				System.out.println(">> Trama corrigida na posição " + posicaoErro);
 				System.out.println("Trama após correcção: "+Arrays.toString(trama));
 				if (SuperSingleton.getInstance().getAuxCalc().checkTramas(trama)) {
-					System.out.println("-- Erros detectados correctamente --");
+					System.out.println("-- Trama corrigida correctamente. --");
 					SuperSingleton.getInstance().getEstatisticas().errosDetectatos();
 					SuperSingleton.getInstance().getEstatisticas().tramasCorrigidas();
 				} else {
